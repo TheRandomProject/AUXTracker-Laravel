@@ -33,23 +33,23 @@
   }
   </script>
 <template>
-   <div class="flex flex-col h-screen">
+   <div class="flex flex-col">
         <div class="flex justify-center items-center pt-8">
             <div class="w-100 text-center">
-                <h1 class="text-8xl font-bold">Clock</h1>
+                <h1 class="text-8xl font-bold">Clock In</h1>
             </div>
         </div>
 
         <div class="flex justify-center items-center text-5xl mt-5">
-            <div class="w-1/5">
+            <div class="mr-10">
                 <span class="text-white-300">{{ hour }}</span>
-                <span class="text-gray-500 ml-2">hours</span>
+                <span class="text-gray-500 ml-2">hours</span> |
             </div>
-            <div class="w-1/5">
+            <div class="mr-10">
                 <span class="text-white-300">{{ minute }}</span>
-                <span class="text-gray-500 ml-2">minute</span>
+                <span class="text-gray-500 ml-2">minute</span> |
             </div>
-            <div class="w-1/5">
+            <div class="mr-10">
                 <span class="text-white-300">{{ second }}</span>
                 <span class="text-gray-500 ml-2">second</span>
             </div>

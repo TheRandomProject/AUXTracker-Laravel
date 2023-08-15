@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('aux_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('eid')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->index('email');
-            $table->index('name');
-            $table->rememberToken();
+            $table->bigInteger('user_id');
+            $table->enum('type_aux', ['Time In', 'Time Out', 'First 15 Mins', 'Second 15 Mins', 'Meeting Time In', 'Meeting Time Out', 'Coaching', 'BIO Break', 'Huddle', 'Wellness', 'Moderation']);
+            $table->text('remark')->nullable();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('modified_by');
             $table->timestamps();
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('aux_histories');
     }
 };

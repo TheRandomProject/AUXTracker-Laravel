@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/egants', [\App\Http\Controllers\EgantController::class, 'index']);
+Route::get('/auxs', [\App\Http\Controllers\AuxController::class, 'index']);

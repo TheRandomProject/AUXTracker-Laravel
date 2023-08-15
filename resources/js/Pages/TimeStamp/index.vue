@@ -44,11 +44,9 @@ const auxs = ref([
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <GuestLayout>
     
-    <AuthenticatedLayout>
-
-        <Clock :class="'mt-60'" />
+        <Clock :class="'mt-80'" />
         
         <div class="flex flex-col">
             <div class="flex justify-center items-center text-5xl mt-5">
@@ -98,5 +96,5 @@ const auxs = ref([
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </GuestLayout>
 </template>

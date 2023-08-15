@@ -102,9 +102,27 @@ import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
-import "primevue/resources/themes/lara-light-indigo/theme.css";
+import "primevue/resources/themes/lara-light-blue/theme.css";
+import "primevue/resources/primevue.min.css"; /* Deprecated */
 import 'primeicons/primeicons.css';
 
+// //Tailwind customization
+// const CustomTailwind = usePassThrough(
+//     Tailwind,
+//     {
+//         panel: {
+//             title: {
+//                 class: ['leading-none font-light text-2xl']
+//             }
+//         }
+//     },
+//     {
+//         merge: true,             // Used to merge PT options. The default is true.
+//         useMergeProps: false,    // Whether to use Vue's 'mergeProps' method to merge PT options.
+//         ignoredKeysOnMerge: [],  // Defines keys to ignore during the merge operation. For example; ['panel.title']
+//         customizer: undefined    // Defines the custom method to merge PT options.
+//     }
+// );
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -115,7 +133,7 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
-            .use(PrimeVue)
+            .use(PrimeVue, { ripple: true  })
             .component('Accordion', Accordion)
             .component('AccordionTab', AccordionTab)
             .component('AutoComplete', AutoComplete)

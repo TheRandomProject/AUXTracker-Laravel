@@ -41,6 +41,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'created_by' => '1',
+            'modified_by' => '1'
         ]);
 
         event(new Registered($user));
