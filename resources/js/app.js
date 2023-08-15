@@ -134,6 +134,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(PrimeVue, { ripple: true  })
+            .use(ToastService)
             .component('Accordion', Accordion)
             .component('AccordionTab', AccordionTab)
             .component('AutoComplete', AutoComplete)

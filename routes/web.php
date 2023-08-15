@@ -21,7 +21,7 @@ Route::get('/time-stamp', function() {
 })->name('timestamp');
 
 Route::get('/', function () {
-    return Inertia::render('TimeStamp/index');
+    return Inertia::render('Dashboard');
 })->name('timestamp');
 
 Route::middleware('auth')->group(function () {

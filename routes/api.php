@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/egants', [\App\Http\Controllers\EgantController::class, 'index']);
-Route::get('/auxs', [\App\Http\Controllers\AuxController::class, 'index']);
+Route::get('/aux-types', [\App\Http\Controllers\AuxTypeController::class, 'index']);
+ROute::get('/aux-history', [\App\Http\Controllers\AuxHistoryController::class, 'index']);
+ROute::post('/aux-history', [\App\Http\Controllers\AuxHistoryController::class, 'store']);

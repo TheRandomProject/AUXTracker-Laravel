@@ -15,7 +15,7 @@ class AuxHistory extends Model
 
     protected $fillable = [
         'user_id',
-        'type_aux',
+        'aux_type',
         'remark',
         'created_by',
         'modified_by',

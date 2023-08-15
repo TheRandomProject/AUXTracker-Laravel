@@ -12,7 +12,10 @@ class AuxHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $aux_history = AuxHistory::addSelect(['users.name', 'aux_histories.*'])
+        ->join('users', 'aux_histories.user_id', 'users.id')->get();
+
+    return response()->json($aux_history);
     }
 
     /**
@@ -28,7 +31,21 @@ class AuxHistoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'aux_type'  => 'required|string|max:255',
+            'user_id'   => 'required|integer'    
+        ]);
+
+        $aux_history = AuxHistory::create([
+            'aux_type'  => $request->aux_type,
+            'user_id'   => $request->user_id,
+            'created_by'    => auth()->id() ?: '0',
+            'modified_by'  => auth()->id() ?: '0',
+        ]);
+
+        return response()->json([
+            'succes' => 'Success Fully Created' 
+        ]);
     }
 
     /**

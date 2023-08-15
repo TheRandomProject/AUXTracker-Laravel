@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aux_histories', function (Blueprint $table) {
+        Schema::create('aux_types', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->string('aux_type');
-            $table->text('remark')->nullable();
+            $table->string('aux_type')->unique();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('modified_by');
             $table->timestamps();
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aux_histories');
+        Schema::dropIfExists('aux_types');
     }
 };

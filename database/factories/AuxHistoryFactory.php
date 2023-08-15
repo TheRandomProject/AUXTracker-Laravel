@@ -30,7 +30,7 @@ class AuxHistoryFactory extends Factory
     {
         return [
             'user_id'   => User::all()->random()->id,
-            'type_aux'  => $this->faker->randomElement($this->enums),
+            'aux_type'  => $this->faker->randomElement($this->enums),
             'created_by'    => '1',
             'modified_by'   => '1',
         ];
