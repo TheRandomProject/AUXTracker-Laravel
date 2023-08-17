@@ -45,6 +45,7 @@ const openNew = () => {
 
                     <DataTable :value="customers" paginator showGridlines :rows="10" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
                         
+                        <Column field="eid" header="EID" style="width: 25%"></Column>
                         <Column field="name" header="Name" style="width: 25%"></Column>
                         <Column field="email" header="Email" style="width: 25%"></Column>
                         

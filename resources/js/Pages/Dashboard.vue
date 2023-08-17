@@ -27,6 +27,7 @@ const auxs = ref();
 
 function submit() {
     axios.post('/api/aux-history', {
+        'aux_created_at' : moment().format("YYYY-MM-DD HH:mm:ss"),
         'user_id' : selectedEID.value.id,
         'aux_type' : selectedAUX.value.aux_type
     }).then((response) => {
@@ -40,7 +41,7 @@ function submit() {
         });
         
     }).catch((error) => {
-        console.log(error)
+        
         toast.add({
             severity: "warn",
             summary: "Something Warn",
@@ -57,7 +58,8 @@ const successMessage = () => {
 </script>
 
 <template>
-    <GuestLayout v-if="!$page.props.auth">
+
+    <GuestLayout v-if="$page.props.auth.user === null">
         <Toast position="bottom-right" group="br" />
         <Clock :class="'mt-80'" />
         
@@ -111,7 +113,7 @@ const successMessage = () => {
         </div>
     </GuestLayout>
 
-    <AuthenticatedLayout v-if="$page.props.auth">
+    <AuthenticatedLayout v-if="$page.props.auth.user !== null">
         <Toast position="bottom-right" group="br" />
         <Clock :class="'mt-80'" />
         

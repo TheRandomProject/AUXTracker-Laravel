@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const aux_histories = ref();
 const createNewUser = ref(false);
+const menu = ref();
 
 onMounted(() => {
     axios.get('/api/aux-history')
@@ -13,6 +14,20 @@ onMounted(() => {
         .catch(error => console.error(error))
 });
 
+const items = ref([
+    {
+        label: 'Delete',
+        icon: 'pi pi-fw pi-trash'
+    },
+    {
+        label: 'Edit',
+        icon: 'pi pi-fw pi-pencil'
+    },
+]);
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
 </script>
 
 <template>
@@ -38,6 +53,13 @@ onMounted(() => {
                         
                         <Column field="name" header="Name" style="width: 25%"></Column>
                         <Column field="aux_type" header="Aux Type" style="width: 25%"></Column>
+                        <Column field="aux_created_at" header="Time Enter" style="width: 25%"></Column>
+                        <Column field="id" header="Action" style="width: 25%">
+                            <template #body="{ data }">
+                                <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" :aria-controls="`ref_${data.id}`" />
+                                <TieredMenu ref="menu" :id="`ref_${data.id}`" :model="items" popup />
+                            </template>
+                        </Column>
                         
                     </DataTable>
                 </div>

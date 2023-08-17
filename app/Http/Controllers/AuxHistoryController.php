@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AuxHistory;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AuxHistoryController extends Controller
 {
@@ -37,6 +38,7 @@ class AuxHistoryController extends Controller
         ]);
 
         $aux_history = AuxHistory::create([
+            'aux_created_at' => Carbon::parse($request->aux_created_at)->toDateTimeString(),
             'aux_type'  => $request->aux_type,
             'user_id'   => $request->user_id,
             'created_by'    => auth()->id() ?: '0',

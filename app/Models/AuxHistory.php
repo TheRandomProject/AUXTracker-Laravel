@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Carbon\Carbon;
 
 
 class AuxHistory extends Model
@@ -19,10 +20,15 @@ class AuxHistory extends Model
         'remark',
         'created_by',
         'modified_by',
+        'aux_created_at',
     ];
 
     protected $dates = [
         'created_at',
         'updated_at',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:M d g:i A', // Customize the desired format
     ];
 }

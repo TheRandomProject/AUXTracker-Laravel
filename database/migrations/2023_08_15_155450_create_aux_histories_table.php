@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->string('aux_type');
+            $table->dateTime('aux_created_at');
             $table->text('remark')->nullable();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('modified_by');
